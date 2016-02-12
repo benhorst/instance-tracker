@@ -1,4 +1,4 @@
-import { ADD_ACTOR, INSERT_ACTOR, DELETE_ACTOR, UPDATE_ACTOR } from '../constants/ActionTypes'
+import { ADD_ACTOR, REMOVE_ACTOR, INSERT_ACTOR, DELETE_ACTOR, UPDATE_ACTOR } from '../constants/ActionTypes'
 
 const initialState = []
 
@@ -13,6 +13,11 @@ export default function actors(state = initialState, action) {
         },
         ...state
       ]
+
+    case REMOVE_ACTOR:
+      return state.filter(actor =>
+        actor._id !== action.id
+      )
 
     case INSERT_ACTOR:
       return [

@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
+import ActorListItem from './ActorListItem'
 import classNames from 'classnames'
 
-import '../style/components/actors.scss'
 import '../style/components/main.scss'
 
 class MainSection extends Component {
@@ -20,9 +20,10 @@ class MainSection extends Component {
     return (
       <section className="main">
         <ul className="list">
-          {actors.map(actor =>
-            <li key={actor.name}
-                className={classNames('actor', actor.actorType)}>{actor.name}</li> 
+          {actors.map((actor) => {
+              return <ActorListItem actor={actor}
+                           actions={actions} />
+            }
           )}
         </ul>
       </section>
