@@ -27,6 +27,10 @@ module.exports = {
       test: /\.css?$/,
       loaders: [ 'style', 'raw' ],
       include: __dirname
+    },
+    {
+      test: /\.scss$/,
+      loaders: ["style", "css", "sass"]
     }]
   }
 }
