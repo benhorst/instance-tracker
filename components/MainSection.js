@@ -1,4 +1,8 @@
 import React, { Component, PropTypes } from 'react'
+import classNames from 'classnames'
+
+import '../style/components/actors.scss'
+import '../style/components/main.scss'
 
 class MainSection extends Component {
   constructor(props, context) {
@@ -17,7 +21,8 @@ class MainSection extends Component {
       <section className="main">
         <ul className="list">
           {actors.map(actor =>
-            <li key={actor.name}>{actor.name}</li> 
+            <li key={actor.name}
+                className={classNames('actor', actor.actorType)}>{actor.name}</li> 
           )}
         </ul>
       </section>
