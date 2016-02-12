@@ -20,9 +20,10 @@ class MainSection extends Component {
     return (
       <section className="main">
         <ul className="list">
-          {actors.map((actor) => {
+          // sort in descending order of initiative
+          {actors.sort( (a,b) => b.initiative - a.initiative).map((actor) => {
               return <ActorListItem actor={actor}
-                           actions={actions} />
+                                    actions={actions} />
             }
           )}
         </ul>

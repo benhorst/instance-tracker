@@ -9,3 +9,7 @@ export function removeActor(id) {
   return { type: Types.REMOVE_ACTOR, id: id }
 }
 
+export function updateActor(actor) {
+  return { type: Types.EDIT_ACTOR, actor: actor }
+}
+

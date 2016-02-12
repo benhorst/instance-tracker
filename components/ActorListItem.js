@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import NumberInput from './NumberInput'
 import classNames from 'classnames'
 
 import '../style/components/actors.scss'
@@ -6,15 +7,15 @@ import '../style/components/actors.scss'
 class ActorListItem extends Component {
   constructor(props, context) {
     super(props, context)
-    this.state = {}
+    this.state = {  }
   }
 
   handleDelete(id) {
     this.props.actions.removeActor(id);
   }
 
-  handleShow() {
-    this.setState({})
+  handleInitiativeChange(newValue) {
+    this.props.actions.updateActor(Object.assign({}, this.props.actor, { initiative: newValue }))
   }
 
   render() {
@@ -23,10 +24,11 @@ class ActorListItem extends Component {
     return (
             <li key={actor._id}
                 className={classNames('actor', actor.actorType)}>
-              {actor.name}
               <button onClick={this.handleDelete.bind(this, actor._id)}>
                 remove
               </button>
+              <NumberInput binding={actor.initiative} onChange={this.handleInitiativeChange.bind(this)} />
+              {actor.name}
             </li> 
           )
   }
