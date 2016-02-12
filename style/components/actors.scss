@@ -1,0 +1,25 @@
+@import 'style/colors.scss';
+
+@mixin player() {
+  color: $player-color;
+}
+
+@mixin friendly() {
+  color: $friendly-color;
+}
+
+@mixin hostile() {
+  color: $hostile-color;
+}
+
+.actor.player {
+  @include player();
+}
+
+.actor.npc_friendly {
+  @include friendly();
+}
+
+.actor.npc_hostile {
+  @include hostile();
+}
