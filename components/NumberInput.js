@@ -13,19 +13,19 @@ class NumberInput extends Component {
     this.setState(Object.assign({}, this.state, {value: parseInt(ev.target.value)}))
   }
 
-  _finishEditing() {
+  finishEditing() {
     this.setState(Object.assign({}, this.state, {editing: false}))
     this.props.onChange(this.state.value)
   }
 
   blur(ev) {
-    this._finishEditing()
+    this.finishEditing()
   }
 
   keyDown(ev) {
     // Submit on <Return>
     if (ev.which === 13) {
-      this._finishEditing()
+      this.finishEditing()
     }
   }
 
