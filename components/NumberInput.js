@@ -13,9 +13,20 @@ class NumberInput extends Component {
     this.setState(Object.assign({}, this.state, {value: parseInt(ev.target.value)}))
   }
 
-  blur(ev) {
+  _finishEditing() {
     this.setState(Object.assign({}, this.state, {editing: false}))
     this.props.onChange(this.state.value)
+  }
+
+  blur(ev) {
+    this._finishEditing()
+  }
+
+  keyDown(ev) {
+    // Submit on <Return>
+    if (ev.which === 13) {
+      this._finishEditing()
+    }
   }
 
   click(ev) {
@@ -40,7 +51,8 @@ class NumberInput extends Component {
                        ref="numberInput"
                        value={this.state.value}
                        onChange={this.change.bind(this)}
-                       onBlur={this.blur.bind(this)} />
+                       onBlur={this.blur.bind(this)}
+                       onKeyDown={this.keyDown.bind(this)} />
                 :
                 <span style={ { 'padding'  : '0 1em' } }
                       onClick={this.click.bind(this)}>
