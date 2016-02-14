@@ -42,8 +42,7 @@ class NumberInput extends Component {
                        onChange={this.change.bind(this)}
                        onBlur={this.blur.bind(this)} />
                 :
-                <span style={ { 'padding'  : '0 1em' } }
-                      onClick={this.click.bind(this)}>
+                <span onClick={this.click.bind(this)}>
                   {this.state.value}
                 </span>
            )

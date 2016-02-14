@@ -18,6 +18,10 @@ class ActorListItem extends Component {
     this.props.actions.updateActor(Object.assign({}, this.props.actor, { initiative: newValue }))
   }
 
+  handleHpChange(newValue) {
+    this.props.actions.updateActor(Object.assign({}, this.props.actor, { hp: newValue }))
+  }
+
   render() {
     const { actor, actions } = this.props
 
@@ -27,8 +31,17 @@ class ActorListItem extends Component {
               <button onClick={this.handleDelete.bind(this, actor._id)}>
                 remove
               </button>
-              <NumberInput binding={actor.initiative} onChange={this.handleInitiativeChange.bind(this)} />
-              {actor.name}
+              <span className="init">
+                <NumberInput binding={actor.initiative} onChange={this.handleInitiativeChange.bind(this)} />
+              </span>
+              <span className="name">
+                {actor.name}
+              </span>
+              <span className="hp">
+                (
+                <NumberInput binding={actor.hp} onChange={this.handleHpChange.bind(this)} />
+                )
+              </span>
             </li> 
           )
   }
