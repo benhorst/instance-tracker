@@ -10,6 +10,7 @@ class ActorTextInput extends Component {
 
   handleSubmit(e) {
     const text = e.target.value.trim()
+    // Submit on <Return>
     if (e.which === 13) {
       this.props.onSave(text)
       if (this.props.newActor) {
