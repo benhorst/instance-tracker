@@ -23,3 +23,15 @@
 .actor.npc_hostile {
   @include hostile();
 }
+
+.name {
+  padding: 0 1em;
+}
+
+.init {
+  padding-left: 1em;
+}
+
+input[type=number] {
+  width: 3em;
+}
