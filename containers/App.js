@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import ActorTextInput from '../components/ActorTextInput'
-import MainSection from '../components/MainSection'
+import ActorList from '../components/ActorList'
 import SyncStatus from '../components/SyncStatus'
 import * as ActorActions from '../actions/actors'
 import * as ActorTypes from '../constants/ActorTypes'
@@ -19,7 +19,7 @@ class App extends Component {
                                    placeholder={"add a " + ActorTypes[key] } />
           })
         }
-        <MainSection actors={actors} actions={actions} />
+        <ActorList actors={actors} actions={actions} />
         <SyncStatus status={syncState} />
       </div>
     )
